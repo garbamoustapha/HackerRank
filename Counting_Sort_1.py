@@ -1,9 +1,36 @@
-n = int(input())
-arr = list(map(int, input().split()))
+#!/bin/python3
 
-ind = [0] *  n
+import math
+import os
+import random
+import re
+import sys
 
-for i in range(n):
-    ind[arr[i]] += 1
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
 
-print(*ind)
+def countingSort(arr):
+    ind = [0] * 100
+
+    for num in arr:
+        ind[num] += 1
+
+    return ind
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
